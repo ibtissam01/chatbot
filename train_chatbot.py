@@ -37,13 +37,13 @@ words = [lemmatizer.lemmatize(w.lower()) for w in words if w not in ignore_words
 words = sorted(list(set(words)))
 
 classes = sorted(list(set(classes)))
-print (len(documents), "documents")
-print (len(classes), "classes", classes)
-print (len(words), "unique lemmatized words", words)
+print(len(documents), "documents")
+print(len(classes), "classes", classes)
+print(len(words), "unique lemmatized words", words)
 
 
-pickle.dump(words,open('words.pkl','wb'))
-pickle.dump(classes,open('classes.pkl','wb'))
+pickle.dump(words, open('words.pkl', 'wb'))
+pickle.dump(classes, open('classes.pkl', 'wb'))
 
 training = []
 output_empty = [0] * len(classes)
@@ -80,3 +80,4 @@ hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5,
 pickle.dump(hist.history, open('hist.pkl', 'wb'))
 
 print("model created")
+
