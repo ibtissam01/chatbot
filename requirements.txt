@@ -1,6 +1,6 @@
 nltk
 numpy
-
+PyTorch
 keras
 tensorflow
 numpy
