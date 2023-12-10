@@ -1,7 +1,6 @@
 nltk
 numpy
-json
-random
+
 keras
 tensorflow
 numpy
