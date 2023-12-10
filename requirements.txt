@@ -1,4 +1,9 @@
 nltk
+numpy
+matplotlib.pyplot 
+json
+random
 keras
+tensorflow
 numpy
 streamlit
