@@ -5,6 +5,7 @@ import pickle
 import numpy as np
 import nltk
 nltk.download('punkt')
+nltk.download('wordnet')
 from tensorflow.keras.models import load_model
 model = load_model('chatbot_model.h5')
 import json
