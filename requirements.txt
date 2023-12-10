@@ -1,9 +1,4 @@
 nltk
-numpy
-GPT2Tokenizer
-GPT2LMHeadModel
-torch
-PyTorch
 keras
 tensorflow
 numpy
