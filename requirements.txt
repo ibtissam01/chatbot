@@ -3,4 +3,5 @@ keras
 tensorflow
 numpy
 streamlit
+torch
 transformers==4.11.3
