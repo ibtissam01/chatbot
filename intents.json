@@ -436,6 +436,67 @@
             "responses":["you might be suffering from Dengue"],
             "context_set":[""]
         }
+	  {
+	"tag": "emergency",
+	"patterns": ["I need help", "emergency", "urgent", "I need immediate assistance", "I'm in danger"],
+	"responses": ["I'm here to help. Please provide more details about your situation so I can assist you better. If this is a life-threatening situation, please call your local emergency number immediately."],
+	"context": [""]
+  },
+  {
+	"tag": "emergency_contact",
+	"patterns": ["What's the emergency number?", "I need to call for help", "What's the emergency hotline?", "What's the emergency contact?"],
+	"responses": ["The emergency number in Morocco is 112. Please call this number if you're in immediate danger or in need of urgent medical attention."],
+	"context": [""]
+  },
+  {
+	"tag": "nearest_hospital",
+	"patterns": ["Where's the nearest hospital?", "I need to go to a hospital", "closest hospital", "nearest medical facility"],
+	"responses": ["I'm sorry, but I can't provide real-time location services. Please use a map service like Bing Maps or Google Maps to find the nearest hospital."],
+	"context": [""]
+  },
+  {
+	"tag": "first_aid",
+	"patterns": ["I need first aid", "How to do first aid?", "first aid steps", "first aid procedures"],
+	"responses": ["First aid procedures depend on the situation. Can you tell me more about the issue? However, it's important to seek professional medical help as soon as possible."],
+	"context": [""]
+  },
+  {
+	"tag": "CPR",
+	"patterns": ["How to do CPR?", "CPR steps", "CPR procedures", "Cardiopulmonary resuscitation steps"],
+	"responses": ["CPR involves chest compressions and rescue breaths to help maintain blood flow to the brain and other vital organs. However, it's crucial to get trained in CPR to perform it correctly. Please seek professional medical help immediately if someone is unresponsive and not breathing."],
+	"context": [""]
+  },
+  {
+	"tag": "emergency_breathing",
+	"patterns": ["I can't breathe", "difficulty breathing", "shortness of breath", "hard to breathe"],
+	"responses": ["It sounds like you're having difficulty breathing. This could be a serious situation. Please call your local emergency number immediately."],
+	"context": [""]
+  },
+  {
+	"tag": "emergency_bleeding",
+	"patterns": ["I'm bleeding", "There's a lot of blood", "I can't stop the bleeding"],
+	"responses": ["If you're bleeding heavily and it won't stop, you need immediate medical attention. Please call your local emergency number right away."],
+	"context": [""]
+  },
+  {
+	"tag": "emergency_burn",
+	"patterns": ["I got burned", "I have a burn", "burn injury"],
+	"responses": ["For severe burns, please seek immediate medical attention. Call your local emergency number right away."],
+	"context": [""]
+  },
+  {
+	"tag": "emergency_allergic_reaction",
+	"patterns": ["I'm having an allergic reaction", "allergy symptoms", "I think I'm allergic"],
+	"responses": ["Allergic reactions can be serious. If you're experiencing difficulty breathing, swelling of your lips, tongue, or face, or hives, please call your local emergency number immediately."],
+	"context": [""]
+  },
+  {
+	"tag": "emergency_poison",
+	"patterns": ["I ingested poison", "I think I've been poisoned", "symptoms of poisoning"],
+	"responses": ["If you suspect you've been poisoned, it's important to seek medical help immediately. Please call your local emergency number right away."],
+	"context": [""]
+  }
+
 		
    ]
 }
