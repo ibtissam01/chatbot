@@ -3,7 +3,8 @@ from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 import pickle
 import numpy as np
-
+import nltk
+nltk.download('punkt')
 from tensorflow.keras.models import load_model
 model = load_model('chatbot_model.h5')
 import json
