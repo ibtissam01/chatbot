@@ -6,20 +6,22 @@ import numpy as np
 import nltk
 nltk.download('punkt')
 nltk.download('wordnet')
-from keras.models import load_model
-model = load_model('chatbot_model.h5')
+from transformers import GPT2Tokenizer, GPT2LMHeadModel
 import json
 import random
+
+# Charger le modèle GPT-2 pré-entraîné et le tokenizer
+tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+model = GPT2LMHeadModel.from_pretrained('gpt2')
+
 intents = json.loads(open('intents.json').read())
 words = pickle.load(open('words.pkl', 'rb'))
 classes = pickle.load(open('classes.pkl', 'rb'))
-
 
 def clean_up_sentence(sentence):
     sentence_words = nltk.word_tokenize(sentence)
     sentence_words = [lemmatizer.lemmatize(word.lower()) for word in sentence_words]
     return sentence_words
-
 
 def bow(sentence, words, show_details=True):
     sentence_words = clean_up_sentence(sentence)
@@ -32,20 +34,11 @@ def bow(sentence, words, show_details=True):
                     print("found in bag: %s" % w)
     return np.array(bag)
 
-
 def predict_class(sentence, model):
     p = bow(sentence, words, show_details=False)
-    res = model.predict(np.array([p]))[0]
-    ERROR_THRESHOLD = 0.25
-    results = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
-    results.sort(key=lambda x: x[1], reverse=True)
-    return_list = []
-    for r in results:
-        return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
-    if not return_list:
-        return_list.append({"intent": "noanswer", "probability": str(1.0)})
-    return return_list
-
+    res = model.generate(p, max_length=100, num_return_sequences=1)
+    response = tokenizer.decode(res[0])
+    return response
 
 def getResponse(ints, intents_json):
     tag = ints[0]['intent']
@@ -56,8 +49,6 @@ def getResponse(ints, intents_json):
             break
     return result
 
-
 def chatbot_response(msg):
-    ints = predict_class(msg, model)
-    res = getResponse(ints, intents)
-    return res
+    response = predict_class(msg, model)
+    return response
