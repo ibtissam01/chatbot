@@ -1,7 +1,6 @@
 import nltk
 nltk.download('punkt')
 nltk.download('wordnet')
-
 import nltk
 from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
@@ -72,10 +71,7 @@ model.add(Dense(128, input_shape=(len(train_x[0]),), activation='relu'))
 model.add(Dropout(0.5))
 model.add(Dense(64, activation='relu'))
 model.add(Dropout(0.5))
-model.add(Dense(32, activation='relu'))
-model.add(Dropout(0.5))
 model.add(Dense(len(train_y[0]), activation='softmax'))
-
 
 sgd = SGD(learning_rate=0.01, momentum=0.9, nesterov=True)
 model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
@@ -86,4 +82,3 @@ model.save('chatbot_model.h5', hist)
 pickle.dump(hist.history, open('hist.pkl', 'wb'))
 
 print("model created")
-
